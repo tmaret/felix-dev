@@ -255,7 +255,9 @@ public final class JettyService extends AbstractLifeCycle.AbstractLifeCycleListe
         {
 
             final int threadPoolMax = this.config.getThreadPoolMax();
-            if (threadPoolMax >= 0) {
+            if (threadPoolMax == Integer.MAX_VALUE) {
+                this.server = new Server( new VirtualThreadPool());
+            } else if (threadPoolMax >= 0) {
                 this.server = new Server( new QueuedThreadPool(threadPoolMax) );
             } else {
                 this.server = new Server();

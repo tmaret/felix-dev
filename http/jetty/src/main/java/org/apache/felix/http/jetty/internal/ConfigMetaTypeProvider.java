@@ -167,7 +167,7 @@ class ConfigMetaTypeProvider implements MetaTypeProvider
 
         adList.add(new AttributeDefinitionImpl(JettyConfig.FELIX_JETTY_THREADPOOL_MAX,
                 "Thread Pool Max",
-                "Maximum number of jetty threads. Using the default -1 uses Jetty's default (200).",
+                "Maximum number of jetty threads. Using the default -1 uses Jetty's default (200). Using 2147483647 (integer max value) uses ∞ (unbounded).",
                 -1,
                 bundle.getBundleContext().getProperty(JettyConfig.FELIX_JETTY_THREADPOOL_MAX)));
 
